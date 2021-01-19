@@ -79,8 +79,8 @@ if __name__ == "__main__":
         elif 'open google' in query:
             webbrowser.open("google.com")
 
-        elif 'open stackoverflow' in query:
-            webbrowser.open("stackoverflow.com")
+        elif 'open github' in query:
+            webbrowser.open("github.com")
 
 
         elif 'play music' in query:
@@ -99,9 +99,9 @@ if __name__ == "__main__":
 
         elif 'email to harry' in query:
             try:
-                speak("What should I say?")
+                speak("Sir, What should I say?")
                 content = takeCommand()
-                to = "harryyourEmail@gmail.com"
+                to = "salohiddin22@gmail.com"
                 sendEmail(to, content)
                 speak("Email has been sent!")
             except Exception as e:
