@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Science Portfolio on Salokhiddin Nuraliev</title>
+    <link>https://salokhiddin94.github.io/Salokhiddin94/</link>
+    <description>Recent content in Data Science Portfolio on Salokhiddin Nuraliev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 Dec 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://salokhiddin94.github.io/Salokhiddin94/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linear regression module for predicting</title>
+      <link>https://salokhiddin94.github.io/Salokhiddin94/post/project-2/</link>
+      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://salokhiddin94.github.io/Salokhiddin94/post/project-2/</guid>
+      <description>Before we start coding, we should install Jupiter notebook which is simple and comfortable tool.
+link&amp;raquo; https://jupyter.org/install
+Then we need to install some essential libraries:
+import numpy as np
+import pandas as pd
+from sklearn import linear_model
+import sklearn
+from sklearn.utils import shuffle
+import matplotlib.pyplot as plt
+from matplotlib import style
+import pickle   Next step is to import dataset
+data = pd.read_csv(&amp;ldquo;student-mat.csv&amp;rdquo;, sep=&amp;rdquo;;&amp;quot;)
+#Since our data is separated by semicolons we need to do sep=‘;’</description>
+    </item>
+    
+    <item>
+      <title>Chatbot for telegram</title>
+      <link>https://salokhiddin94.github.io/Salokhiddin94/post/project-3/</link>
+      <pubDate>Tue, 11 Apr 2017 11:13:32 -0400</pubDate>
+      
+      <guid>https://salokhiddin94.github.io/Salokhiddin94/post/project-3/</guid>
+      <description>In this project I made a chatbot for telegram which can give information about COVID19 statistics with the help of Python programming language. Predominantly, Chatbots have a substantial impact on businesses since they are able to cope with the obstacles of clients&amp;rsquo; queries and prompts as well as other communication problems easily. In fact, they helped us to make the process of customer service super easy and decreased the duties and responsibilities by setting up an automation for the most of the processes.</description>
+    </item>
+    
+    <item>
+      <title>Virtual assistant</title>
+      <link>https://salokhiddin94.github.io/Salokhiddin94/post/project-1/</link>
+      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
+      
+      <guid>https://salokhiddin94.github.io/Salokhiddin94/post/project-1/</guid>
+      <description>Welcome to my virtual assistant project Before going deeply let me explain what is a virtual assistant in reality? A virtual assistant is an independent contactor who provides administrative services to clients while operating outside of the client&amp;rsquo;s office. A virtual assistant typically operates from a home office but can access the necessary planning documents, such as shared calendars, remotely.
+The specific duties of a virtual assistant vary according to the needs of the client and the terms of the contract.</description>
+    </item>
+    
+    <item>
+      <title>Application for data analysis with Python</title>
+      <link>https://salokhiddin94.github.io/Salokhiddin94/post/project-4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://salokhiddin94.github.io/Salokhiddin94/post/project-4/</guid>
+      <description>Welcome to my data analysis application. It was our first project with my friend as a team
+As we know Data analysis is defined as a process of cleaning, transforming, and modelling data to discover useful information for business decision-making. The purpose of Data Analysis is to extract useful information from data and taking the decision based upon the data analysis.
+A simple example of Data analysis is whenever we take any decision in our day-to-day life is by thinking about what happened last time or what will happen by choosing that particular decision.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://salokhiddin94.github.io/Salokhiddin94/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://salokhiddin94.github.io/Salokhiddin94/contact/</guid>
+      <description>Social media platforms.
+   Platform	URL      LinkedIn: https://www.linkedin.com/in/godeeply-null-55a6961b5/   GitHub: https://github.com/Salokhiddin94/Salokhiddin94   Email: Salohiddin2209@.gmail.com   Facebook: https://www.facebook.com/saloh.nuraliyev/   Phone: 010-3997-2002    </description>
+    </item>
+    
+  </channel>
+</rss>

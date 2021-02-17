@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Linear regression module for predicting | Salokhiddin Nuraliev</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Linear regression module for predicting students&#39; performance">
+    <meta name="generator" content="Hugo 0.71.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://salokhiddin94.github.io/Salokhiddin94/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Linear regression module for predicting" />
+<meta property="og:description" content="Linear regression module for predicting students&#39; performance" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://salokhiddin94.github.io/Salokhiddin94/post/project-2/" />
+<meta property="article:published_time" content="2020-12-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-25T00:00:00+00:00" />
+<meta itemprop="name" content="Linear regression module for predicting">
+<meta itemprop="description" content="Linear regression module for predicting students&#39; performance">
+<meta itemprop="datePublished" content="2020-12-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-12-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="759">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linear regression module for predicting"/>
+<meta name="twitter:description" content="Linear regression module for predicting students&#39; performance"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://salokhiddin94.github.io/Salokhiddin94/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Salokhiddin Nuraliev
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://salokhiddin94.github.io/Salokhiddin94/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://salokhiddin94.github.io/Salokhiddin94/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://salokhiddin94.github.io/Salokhiddin94/post/" title="Projects page">
+              Projects
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+<a href="https://www.facebook.com/saloh.nuraliyev/" target="_blank" class="link-transition facebook link dib z-999 pt3 pt0-l mr1" title="Facebook link" rel="noopener" aria-label="follow on Facebook——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+<a href="https://www.linkedin.com/in/godeeply-null-55a6961b5/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/Salokhiddin94/Salokhiddin94" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        PROJECTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://salokhiddin94.github.io/Salokhiddin94/post/project-2/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://salokhiddin94.github.io/Salokhiddin94/post/project-2/&amp;text=Linear%20regression%20module%20for%20predicting" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://salokhiddin94.github.io/Salokhiddin94/post/project-2/&amp;title=Linear%20regression%20module%20for%20predicting" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Linear regression module for predicting</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-12-25T00:00:00Z">December 25, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Before we start coding, we should install Jupiter notebook which is simple and comfortable tool.</p>
+<p>link&raquo;  <a href="https://jupyter.org/install">https://jupyter.org/install</a></p>
+<p>Then we need to install some essential libraries:</p>
+<p>import numpy as np</p>
+<p>import pandas as pd</p>
+<p>from sklearn import linear_model</p>
+<p>import sklearn</p>
+<p>from sklearn.utils import shuffle</p>
+<p>import matplotlib.pyplot as plt</p>
+<p>from matplotlib import style</p>
+<p>import pickle
+<figure>
+    <img src="https://salokhiddin94.github.io/Salokhiddin94/images/intro.jpg"/> 
+</figure>
+
+Next step is to import dataset</p>
+<p>data = pd.read_csv(&ldquo;student-mat.csv&rdquo;, sep=&rdquo;;&quot;)</p>
+<p>#Since our data is separated by semicolons we need to do sep=‘;’</p>
+<p>#describe() is used to view some basic statistical details like percentile, mean, std etc. of a data frame or a series of numeric values</p>
+<p>Data cleaning&hellip;.</p>
+<p>print(data.columns)</p>
+<p>#this will show us only columns</p>
+<p>print(data.school.head(30))</p>
+<p>#This will print out the first 30 rows in our data frame</p>
+<p>#Since we have so many attributes and not all are relevant we need to select the ones we want to use. We can do this by typing the following.</p>
+<p>data = data[[&ldquo;G1&rdquo;, &ldquo;G2&rdquo;, &ldquo;absences&rdquo;,&ldquo;failures&rdquo;, &ldquo;studytime&rdquo;,&ldquo;G3&rdquo;]]                                          <br>
+data = shuffle(data)</p>
+<p>#Now our data frame only has the information associated with those 6 attributes.</p>
+<p>#As we work with datasets, a machine learning algorithm works in two stages. We usually split the data around 20%-80% between testing and training stages. We need to split our data into testing and training data. We will use 90% of our data to train and the other 10% to test. The reason we do this is so that we do not test our model on data that it has already seen.</p>
+<p>x = np.array(data.drop([predict], 1))                       <br>
+y =np.array(data[predict])                                  <br>
+x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(x, y, test_size=0.1)</p>
+<p>#Now we are ready to implement the linear regression algorithm</p>
+<p>How does linear regression module work?</p>
+<p>Linear regression attempts to model the relationship between two variables by fitting a linear equation to observed data.</p>
+<p>One variable is considered to be an explanatory variable, and the other is considered to be a dependent variable.</p>
+<figure>
+    <img src="https://salokhiddin94.github.io/Salokhiddin94/images/linear-1.jpg"/> 
+</figure>
+
+<p>A linear regression line has an equation of the form Y = a + bX, where X is the explanatory variable and Y is the dependent variable.</p>
+<p>The slope of the line is b, and a is the intercept (the value of y when x = 0).</p>
+<p>We can determine the slope(m) of the line by picking two points on the line (p1 and p2) and using the following equation: m = (y2 - y1) / (x2 - x1)</p>
+<figure>
+    <img src="https://salokhiddin94.github.io/Salokhiddin94/images/linear-2.jpg"/> 
+</figure>
+
+<p>Once the computer has generated this line it will use it to predict certain values.</p>
+<p>#Note: The examples above are done in 2D space. In reality most of our best fit lines will span across multiple dimensions and therefore will have multiple slope value</p>
+<p>Implementing the Algorithm&hellip;..</p>
+<p>#Now we understand how linear regression works we can use it to predict students final grades.</p>
+<p>#We will start by defining the model which we will be using&hellip;</p>
+<p>best = 0
+for _ in range(20):                                        <br>
+x_train, x_test, y_train, y_test =                        sklearn.model_selection.train_test_split(x, y,            test_size=0.1)</p>
+<p>#Train module several times for better result above!</p>
+<p>linear = linear_model.LinearRegression()</p>
+<p>#On the next stage, we will train and score our model using the arrays we created in the previous.</p>
+<p>linear.fit(x_train, y_train)</p>
+<p>acc = linear.score(x_test, y_test) # acc stands for accuracy</p>
+<p>print(&ldquo;Accuracy: &quot; + str(acc))</p>
+<p>if acc &gt; best:                                             <br>
+best = acc                                             <br>
+with open(&ldquo;studentgrades.pickle&rdquo;, &ldquo;wb&rdquo;) as f:
+pickle.dump(linear, f)</p>
+<p>#If we want to see the constants used to generate the line we can type the following.</p>
+<p>print(&quot;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-&quot;)</p>
+<p>print(&lsquo;Coefficient: \n&rsquo;, linear.coef_)</p>
+<p>print(&lsquo;Intercept: \n&rsquo;, linear.intercept_)</p>
+<p>print(&quot;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-&quot;)</p>
+<p>#In general, seeing a score value is cool but I&rsquo;d like to see how well our algorithm works on specific students. In order to do this we are going to print out all of our test data. Beside this data we will print the actual final grade and our models predicted grade.</p>
+<p>predicted= linear.predict(x_test)                          <br>
+for x in range(len(predicted)):                           <br>
+print(predicted[x], x_test[x], y_test[x])</p>
+<p>#Our output should look something like this.
+<figure>
+    <img src="https://salokhiddin94.github.io/Salokhiddin94/images/predicted.jpg"/> 
+</figure>
+</p>
+<p>Plotting Our Data&hellip;..</p>
+<p>In order to get a visual representation of our data we can plot it using the matplotlib library we installed earlier. We are going to use a scatter plot to visualize our data because a scatter plot is a type of data visualization that shows the relationship between different variables. This data is shown by placing various data points between an x- and y-axis. For exaple, use scatter plot to determine whether or not two variables have a relationship or correlation.</p>
+<p>plt.title(&lsquo;correlation table&rsquo;)                             <br>
+plot = &ldquo;failures&rdquo;                                          <br>
+plt.scatter(data[plot], data[&ldquo;G3&rdquo;],marker='o&rsquo;)             <br>
+plt.legend()                                               <br>
+plt.xlabel(plot)                                           <br>
+plt.ylabel(&ldquo;Final Grade&rdquo;)                                  <br>
+plt.show()</p>
+<figure>
+    <img src="https://salokhiddin94.github.io/Salokhiddin94/images/plot.jpg"/> 
+</figure>
+
+<p>we can look at other ones as well&hellip;.</p>
+<p>plt.title(&lsquo;correlation table&rsquo;)                             <br>
+plot = &ldquo;studytime&rdquo;                                         <br>
+plt.scatter(data[plot], data[&ldquo;G3&rdquo;],marker='o&rsquo;)             <br>
+plt.legend()                                               <br>
+plt.xlabel(plot)                                           <br>
+plt.ylabel(&ldquo;Final Grade&rdquo;)                                  <br>
+plt.show()</p>
+<figure>
+    <img src="https://salokhiddin94.github.io/Salokhiddin94/images/studytime.jpg"/> 
+</figure>
+
+<p><a href="https://github.com/Salokhiddin94/Salokhiddin94/blob/master/linear%20module.rar">Link to Github Repository</a></p>
+<p><a href="https://github.com/Salokhiddin94/Salokhiddin94/blob/master/Linear%20regrassion%20for%20predicting%20future%20performance%20.ipynb">Link to full code on Github Repository</a></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://salokhiddin94.github.io/Salokhiddin94/" >
+    &copy;  Salokhiddin Nuraliev 2021 
+  </a>
+    <div>
+
+
+
+<a href="https://www.facebook.com/saloh.nuraliyev/" target="_blank" class="link-transition facebook link dib z-999 pt3 pt0-l mr1" title="Facebook link" rel="noopener" aria-label="follow on Facebook——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+<a href="https://www.linkedin.com/in/godeeply-null-55a6961b5/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/Salokhiddin94/Salokhiddin94" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://salokhiddin94.github.io/Salokhiddin94/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
